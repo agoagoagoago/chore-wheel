@@ -39,11 +39,11 @@ A production website at **https://chorewheel.co** — a local-first chore wheel 
 - Domain: `chorewheel.co` is primary (apex serves 200); `www.chorewheel.co` 308 → apex (fixed via API PATCH on project domains — previously the reverse, which broke Search Console sitemap fetch). Vercel default: `chore-wheel-adrian-goh-projects.vercel.app`.
 - Production env vars set: `NEXT_PUBLIC_SITE_URL=https://chorewheel.co`, `NEXT_PUBLIC_FATHOM_SITE_ID=CUEPISZE`, `NEXT_PUBLIC_CONTACT_EMAIL=adrian@sqftai.co`. Not set: SITE_NAME (defaults "Chore Wheel"), ADSENSE_PUBLISHER_ID, GA_MEASUREMENT_ID.
 - Search Console: property `chorewheel.co`, sitemap submitted (initially "Couldn't fetch" due to the www redirect — resolved). Bing Webmaster verification meta `msvalidate.01` is in `layout.tsx` metadata.verification.
-- Lighthouse mobile on live `/`: Perf 99 / A11y 100 / BP 100 / SEO 100 (LCP 1.8s, CLS 0).
+- Lighthouse mobile on live `/`: Perf 99 / A11y 100 / BP 100 / SEO 100 (LCP 1.8s, CLS 0). External SEO audit (Aug 2026): 93/100, only warning was short trust-page titles — fixed.
 
 ## SEO decisions already made
 
-- Primary pages use absolute titles (no `| Chore Wheel` suffix), ≤ ~57 chars; legal pages keep the suffix. Descriptions ~140–160 chars.
+- All pages use absolute titles via `pageMetadata({ absoluteTitle: true })`, 37–57 chars, brand words included (trust pages were lengthened after an audit flagged them <30 chars — e.g. "About Chore Wheel – Who Made It and How It Works"). Descriptions ~140–160 chars.
 - JSON-LD: WebSite + Organization (layout), BreadcrumbList (sub-pages), WebApplication (home). No FAQ/rating/author schema.
 - Robots meta: index, follow, max-image-preview:large, max-snippet:-1.
 - Home FAQ covers "make a chore wheel at home", "how many chores", synonym cluster (wheel of chores / chore picker / randomizer).
