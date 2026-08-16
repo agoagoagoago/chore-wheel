@@ -89,6 +89,10 @@ To add a chore: append to `CHORES` with a new kebab-case id. To add a template: 
 
 To go live: set the publisher id, then in `AdSlot.tsx` replace the reserved `<div>` with the `<ins class="adsbygoogle">` markup and load the AdSense script (e.g. via `next/script` in `layout.tsx`). `/ads.txt` (`src/app/ads.txt/route.ts`) automatically emits the correct `google.com, pub-…, DIRECT, f08c47fec0942fa0` line once the id is set — until then it serves a comment only. **Before enabling personalised ads, check the current Google consent (CMP) requirements for the EU/UK/other regions and add a certified consent banner**; the privacy and cookie pages already describe this.
 
+### Security headers
+
+`next.config.ts` sets a Content-Security-Policy (plus HSTS, nosniff, referrer policy, frame options). The CSP allows self, inline scripts/styles (required by Next's static hydration payload and React style props), and the analytics hosts (Fathom; GA hosts added automatically if `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set). **When enabling AdSense**, extend `script-src`, `img-src`, `connect-src` and `frame-src` with Google's ad hosts and re-run `node scripts/csp-check.mjs` (reports console CSP violations) before deploying.
+
 ### Analytics
 
 `track(event)` in `lib/analytics/index.ts` is a no-op unless a provider is configured. Production uses **Fathom Analytics** (`NEXT_PUBLIC_FATHOM_SITE_ID`, cookieless; `layout.tsx` loads `cdn.usefathom.com/script.js` and events go to `fathom.trackEvent`). GA4 is also supported via `NEXT_PUBLIC_GA_MEASUREMENT_ID` if ever wanted. Events carry counts and flags only (`wheel_spin`, `chore_added`, `template_selected`, `assignment_generated`, `fair_rotation_enabled`, `share_created`, `print_clicked`, `saved_wheel_created`, `library_add_to_wheel`) — never names or chore text. Analytics failures are swallowed.

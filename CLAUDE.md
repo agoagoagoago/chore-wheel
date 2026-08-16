@@ -48,10 +48,11 @@ A production website at **https://chorewheel.co** — a local-first chore wheel 
 - Robots meta: index, follow, max-image-preview:large, max-snippet:-1.
 - Home FAQ covers "make a chore wheel at home", "how many chores", synonym cluster (wheel of chores / chore picker / randomizer).
 - Favicons: `favicon.ico`, `icon.png`, `icon.svg`, `apple-icon.png`, `manifest.webmanifest`.
+- Security headers in `next.config.ts`: CSP (self + unsafe-inline + Fathom hosts incl. img-src for beacons; GA hosts auto-added if configured), HSTS preload, nosniff, referrer, frame options. Verify with `node scripts/csp-check.mjs [baseUrl]`. AdSense will need extra hosts.
 
 ## Open items / ideas for next time
 
-- AdSense: apply only when there's traffic; then set publisher id, wire `<ins class="adsbygoogle">` in `AdSlot.tsx`, add a CMP for EU/UK consent, re-check CLS.
+- AdSense: apply only when there's traffic; then set publisher id, wire `<ins class="adsbygoogle">` in `AdSlot.tsx`, extend the CSP allow-list, add a CMP for EU/UK consent, re-check CLS.
 - After a few weeks: review Search Console queries and tune copy; consider a designed OG image (currently generated in `opengraph-image.tsx`).
 - Legal pages "Last updated: 16 August 2026" — bump when copy changes.
 - Possible future adjacent tools (name picker, dinner wheel, cleaning schedule) — deliberately NOT built; keep topical focus on household chores.
