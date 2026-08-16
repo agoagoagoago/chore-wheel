@@ -52,7 +52,8 @@ export default function AboutPage() {
 
       <h2>Who maintains it</h2>
       <p>
-        {SITE_NAME} is an independent project. {/* OWNER: add a sentence or two about yourself / your team here. */}
+        {SITE_NAME} is an independent project built and maintained by Adrian, a Singapore-based developer and father who knows the daily
+        chaos of managing household chores with kids — this is the tool he wanted for his own home.
         Questions, corrections and suggestions are welcome via the <Link href="/contact">contact page</Link>.
       </p>
     </LegalPage>
