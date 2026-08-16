@@ -14,7 +14,7 @@ export default function TermsPage() {
   return (
     <LegalPage title="Terms of Use" path="/terms">
       <p className="text-sm text-muted">
-        Last updated: <span>OWNER_TO_SET_DATE</span>. {/* OWNER: replace with the real date and review with your own legal advice. */}
+        Last updated: <time dateTime="2026-08-16">16 August 2026</time>.
       </p>
       <h2>Use of the tool</h2>
       <p>

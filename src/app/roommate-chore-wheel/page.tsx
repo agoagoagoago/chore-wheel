@@ -11,8 +11,9 @@ import { getTemplate, templateChores } from "@/lib/chores/templates";
 export const metadata: Metadata = pageMetadata({
   title: "Roommate Chore Wheel – Randomly Divide Apartment Chores",
   description:
-    "Split shared-apartment chores between roommates at random, with Fair Rotation so nobody gets stuck with the bathroom every week. Copy the assignments to your group chat or print them.",
+    "Split shared-apartment chores between roommates at random, with Fair Rotation so nobody gets the bathroom every week. Copy to the group chat or print.",
   path: "/roommate-chore-wheel",
+  absoluteTitle: true,
 });
 
 export default function RoommatePage() {

@@ -10,8 +10,9 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Family Chore Wheel – Share Household Chores Fairly",
   description:
-    "A family chore wheel with a ready-made household template, assignment mode for several family members, Fair Rotation, and a printable weekly routine. Free and private.",
+    "A family chore wheel with a ready-made template, assignment for the whole household, Fair Rotation and a printable weekly routine. Free and private.",
   path: "/family-chore-wheel",
+  absoluteTitle: true,
 });
 
 const WEEK = [

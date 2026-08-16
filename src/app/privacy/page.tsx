@@ -14,8 +14,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage title="Privacy Policy" path="/privacy" intro="Short version: what you type stays on your device.">
       <p className="text-sm text-muted">
-        Last updated: <span>OWNER_TO_SET_DATE</span>.{" "}
-        {/* OWNER: replace with the real date and review the wording with your own legal advice. */}
+        Last updated: <time dateTime="2026-08-16">16 August 2026</time>.
       </p>
 
       <h2>Data you enter</h2>
@@ -41,10 +40,10 @@ export default function PrivacyPage() {
 
       <h2>Analytics</h2>
       <p>
-        We use <a href="https://usefathom.com/">Fathom Analytics</a> to count visits and see which pages and features are used. Fathom
-        does not use cookies, does not store personal information, and does not track you across other websites. It receives standard
-        request data (such as your IP address and browser type) to compute anonymous, aggregated statistics. Feature events we record — such
-        as &ldquo;wheel spun&rdquo; or &ldquo;template selected&rdquo; — are names only; the chores and people you enter are never included.
+        We use <a href="https://usefathom.com/">Fathom Analytics</a> to count visits and see which pages and features are used. Fathom does
+        not use cookies, does not store personal information, and does not track you across other websites. It receives standard request
+        data (such as your IP address and browser type) to compute anonymous, aggregated statistics. Feature events we record — such as
+        &ldquo;wheel spun&rdquo; or &ldquo;template selected&rdquo; — are names only; the chores and people you enter are never included.
       </p>
 
       <h2>Advertising</h2>

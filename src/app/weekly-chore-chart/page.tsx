@@ -7,10 +7,11 @@ import { AdSlot } from "@/components/ads/AdSlot";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Weekly Chore Chart – Plan & Print Who Does What Each Day",
+  title: "Weekly Chore Chart – Plan & Print Who Does What",
   description:
-    "An editable, printable weekly chore chart. Add the people in your home, fill in each day by hand or auto-fill from your chore wheel, then print it for the fridge. Saved in your browser, no account.",
+    "An editable, printable weekly chore chart: add the people in your home, fill in each day or auto-fill from your chore wheel, then print it for the fridge.",
   path: "/weekly-chore-chart",
+  absoluteTitle: true,
 });
 
 export default function WeeklyChartPage() {

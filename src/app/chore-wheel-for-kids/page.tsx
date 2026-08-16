@@ -14,8 +14,9 @@ import type { AgeGroup } from "@/lib/chores/types";
 export const metadata: Metadata = pageMetadata({
   title: "Chore Wheel for Kids – Make Household Tasks More Fun",
   description:
-    "A kids' chore wheel preloaded with age-appropriate chores for younger children, school-age kids and teens. Spin to pick a chore, assign chores to each child, and print the list.",
+    "A kids' chore wheel with age-grouped chores for younger children, school-age kids and teens. Spin to pick a chore, assign chores to each child, print the list.",
   path: "/chore-wheel-for-kids",
+  absoluteTitle: true,
 });
 
 const AGES: AgeGroup[] = ["younger", "school", "teen"];

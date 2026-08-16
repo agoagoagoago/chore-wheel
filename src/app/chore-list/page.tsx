@@ -11,8 +11,9 @@ import { CATEGORIES } from "@/lib/chores/categories";
 export const metadata: Metadata = pageMetadata({
   title: "Household Chore List by Room, Frequency & Effort",
   description:
-    "A complete household chore list organised by room — kitchen, bathroom, bedroom, living areas, laundry, outdoor and pets — with how often each chore is usually done and how long it takes. Tick chores and add them straight to your chore wheel.",
+    "Nearly 100 household chores by room — kitchen, bathroom, bedroom, laundry, outdoor, pets — with typical frequency and effort. Tick chores and add them to your wheel.",
   path: "/chore-list",
+  absoluteTitle: true,
 });
 
 export default function ChoreListPage() {

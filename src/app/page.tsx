@@ -7,13 +7,15 @@ import { AdSlot } from "@/components/ads/AdSlot";
 import { pageMetadata } from "@/lib/seo";
 import { CHORES, DEFAULT_WHEEL_IDS, getChores } from "@/lib/chores/data";
 import { CATEGORIES } from "@/lib/chores/categories";
-import { LIMITS } from "@/config/site";
+import { LIMITS, SITE_NAME, absoluteUrl } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   title: "Chore Wheel – Randomly Pick & Assign Household Chores",
   description:
-    "Add your chores, spin the wheel, and let it decide who does what. Assign chores to family members or roommates fairly, save your wheel, share it, and print the results. Free, no sign-up.",
+    "Free chore wheel: add your chores, spin to pick one at random, or assign chores to family or roommates fairly. Save, share and print — no sign-up.",
   path: "/",
+  absoluteTitle: true,
 });
 
 const ROOM_IDS = ["kitchen", "bathroom", "bedroom", "living", "laundry", "outdoor"] as const;
@@ -33,6 +35,30 @@ export default function HomePage() {
 
         <ChoreWheelApp />
       </Container>
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: SITE_NAME,
+          url: absoluteUrl("/"),
+          applicationCategory: "LifestyleApplication",
+          operatingSystem: "Any (web browser)",
+          browserRequirements: "Requires JavaScript",
+          isAccessibleForFree: true,
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          description:
+            "Add household chores, spin the wheel to pick one at random, or assign chores to people fairly. Save, share and print — no account needed.",
+          featureList: [
+            "Spin to pick a random chore",
+            "Assign chores to household members",
+            "Fair Rotation using local history",
+            "Chore templates for families, kids, roommates and rooms",
+            "Save wheels locally and share by link",
+            "Print or copy assignments",
+          ],
+        }}
+      />
 
       <Container className="mt-10">
         <AdSlot slot="home-after-tool" format="horizontal" />
@@ -177,6 +203,25 @@ export default function HomePage() {
                 No. The share link contains the wheel itself, encoded in the part of the URL after the <code>#</code>, which browsers never
                 send to the server. Anyone with the link can open the wheel, so don&apos;t include information you wouldn&apos;t want passed
                 on.
+              </p>
+              <h3>How do I make a chore wheel at home?</h3>
+              <p>
+                Digital is easiest: add your chores above, and it&apos;s ready in a minute and saved for next time. For a paper version, cut
+                a circle from card, divide it into as many wedges as you have chores, write one chore per wedge, and pin a cardboard arrow
+                through the centre with a split pin so it spins freely. If you want the paper wheel to match this one, print today&apos;s
+                assignments instead — a spinner is fun, but a list on the fridge is what actually gets followed.
+              </p>
+              <h3>How many chores should go on a chore wheel?</h3>
+              <p>
+                Six to twelve is the sweet spot: enough variety that spins feel random, few enough that every wedge is readable. For a small
+                child, five is plenty. If you have more chores than that, split them into a few saved wheels (kitchen, weekend, kids) or use
+                the chore list to build a fresh wheel each week.
+              </p>
+              <h3>Is this the same as a wheel of chores or chore randomizer?</h3>
+              <p>
+                Yes — chore wheel, wheel of chores, chore picker, chore spinner and chore randomizer all describe the same idea: a random
+                way to decide which chore to do or who does it. This one adds the parts a plain spinner lacks: templates, assignment to
+                people, Fair Rotation, saving, sharing and printing.
               </p>
               <h3>Can I use it for things other than chores?</h3>
               <p>

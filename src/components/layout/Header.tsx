@@ -7,6 +7,7 @@ const NAV = [
   { href: "/chore-wheel-for-kids", label: "Kids" },
   { href: "/family-chore-wheel", label: "Families" },
   { href: "/roommate-chore-wheel", label: "Roommates" },
+  { href: "/weekly-chore-chart", label: "Weekly Chart" },
 ];
 
 /**
