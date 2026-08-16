@@ -21,11 +21,14 @@ export const ADSENSE_PUBLISHER_ID = env("NEXT_PUBLIC_ADSENSE_PUBLISHER_ID", "");
 /** Show reserved ad placeholders (dev/staging) even without a publisher id. */
 export const ADS_PLACEHOLDERS = env("NEXT_PUBLIC_ADS_PLACEHOLDERS", "false") === "true";
 
-/** GA4 measurement id, e.g. "G-XXXXXXXXXX". Empty = analytics disabled. */
+/** Fathom Analytics site id (cookieless, privacy-friendly). Empty = disabled. */
+export const FATHOM_SITE_ID = env("NEXT_PUBLIC_FATHOM_SITE_ID", "");
+
+/** GA4 measurement id, e.g. "G-XXXXXXXXXX". Empty = disabled. */
 export const GA_MEASUREMENT_ID = env("NEXT_PUBLIC_GA_MEASUREMENT_ID", "");
 
 export const ADS_ENABLED = ADSENSE_PUBLISHER_ID.length > 0 || ADS_PLACEHOLDERS;
-export const ANALYTICS_ENABLED = GA_MEASUREMENT_ID.length > 0;
+export const ANALYTICS_ENABLED = FATHOM_SITE_ID.length > 0 || GA_MEASUREMENT_ID.length > 0;
 
 export const SITE_DESCRIPTION =
   "A free chore wheel you can use right now: add household chores, spin to pick one at random, or assign chores to people fairly. Save, share and print — no account needed.";

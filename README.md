@@ -31,7 +31,7 @@ Other scripts:
 
 ```
 src/
-  config/site.ts            SITE_NAME, SITE_URL, CONTACT_EMAIL, ADSENSE_PUBLISHER_ID, GA_MEASUREMENT_ID, LIMITS
+  config/site.ts            SITE_NAME, SITE_URL, CONTACT_EMAIL, ADSENSE_PUBLISHER_ID, FATHOM_SITE_ID, GA_MEASUREMENT_ID, LIMITS
   app/                      Routes (all static): /, /chore-wheel-for-kids, /family-chore-wheel,
                             /roommate-chore-wheel, /chore-list, /weekly-chore-chart, /about, /contact,
                             /privacy, /terms, /cookies, sitemap.ts, robots.ts, ads.txt/route.ts,
@@ -42,7 +42,7 @@ src/
     assign/                 assign.ts (assignment + Fair Rotation + text/CSV formatting)
     share/codec.ts          share-URL encode/decode/validate
     storage/                primitives.ts (safe localStorage), store.ts (useSyncExternalStore store), local.ts (keys, stores)
-    analytics/index.ts      track() abstraction (no-op unless GA id set; never sends user text)
+    analytics/index.ts      track() abstraction (Fathom / GA4; no-op unless configured; never sends user text)
     seo.ts                  pageMetadata() helper
   components/
     wheel/                  ChoreWheelApp (client root), WheelSvg, ChoreEditor, WheelResult, SpinHistory, WheelOptions, hooks
@@ -91,7 +91,7 @@ To go live: set the publisher id, then in `AdSlot.tsx` replace the reserved `<di
 
 ### Analytics
 
-`track(event)` in `lib/analytics/index.ts` is a no-op unless `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set, in which case `layout.tsx` loads gtag and events go to GA4. Events carry counts and flags only (`wheel_spin`, `chore_added`, `template_selected`, `assignment_generated`, `fair_rotation_enabled`, `share_created`, `print_clicked`, `saved_wheel_created`, `library_add_to_wheel`) — never names or chore text. Analytics failures are swallowed.
+`track(event)` in `lib/analytics/index.ts` is a no-op unless a provider is configured. Production uses **Fathom Analytics** (`NEXT_PUBLIC_FATHOM_SITE_ID`, cookieless; `layout.tsx` loads `cdn.usefathom.com/script.js` and events go to `fathom.trackEvent`). GA4 is also supported via `NEXT_PUBLIC_GA_MEASUREMENT_ID` if ever wanted. Events carry counts and flags only (`wheel_spin`, `chore_added`, `template_selected`, `assignment_generated`, `fair_rotation_enabled`, `share_created`, `print_clicked`, `saved_wheel_created`, `library_add_to_wheel`) — never names or chore text. Analytics failures are swallowed.
 
 ### Site metadata
 
@@ -106,5 +106,5 @@ Any Node host works; the app is fully static. On Vercel: import the repo, set th
 - `NEXT_PUBLIC_SITE_URL` (real domain), `NEXT_PUBLIC_SITE_NAME`, `NEXT_PUBLIC_CONTACT_EMAIL`
 - Replace `OWNER_TO_SET_DATE` on the privacy/terms/cookies pages and review that copy with your own advice
 - Add a sentence about who maintains the site on `/about`
-- `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` only after AdSense approval; `NEXT_PUBLIC_GA_MEASUREMENT_ID` if you want analytics
+- `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` only after AdSense approval (Fathom is already configured via `NEXT_PUBLIC_FATHOM_SITE_ID`)
 - Optional: designed favicon/OG image

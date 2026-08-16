@@ -2,9 +2,10 @@ import { ANALYTICS_ENABLED } from "@/config/site";
 
 /**
  * Analytics abstraction. Events carry counts and flags only — never names,
- * chores or any user-entered text. When no provider is configured, `track` is
- * a no-op. Any provider error is swallowed so analytics can never break the
- * tool.
+ * chores or any user-entered text. Providers: Fathom (NEXT_PUBLIC_FATHOM_SITE_ID)
+ * and/or GA4 (NEXT_PUBLIC_GA_MEASUREMENT_ID). When neither is configured,
+ * `track` is a no-op. Any provider error is swallowed so analytics can never
+ * break the tool.
  */
 
 export type AnalyticsEvent =
@@ -20,12 +21,19 @@ export type AnalyticsEvent =
   | { name: "library_add_to_wheel"; itemCount: number };
 
 type Gtag = (...args: unknown[]) => void;
+type Fathom = { trackEvent?: (name: string, opts?: { _value?: number }) => void };
 
 export function track(event: AnalyticsEvent): void {
   if (!ANALYTICS_ENABLED) return;
   try {
     const { name, ...params } = event;
-    const w = window as unknown as { gtag?: Gtag };
+    const w = window as unknown as { gtag?: Gtag; fathom?: Fathom };
+    // Fathom events are name-only; encode the one flag/count that matters in the name
+    // (e.g. "wheel_spin", "assignment_generated_fair") so nothing user-entered is sent.
+    if (typeof w.fathom?.trackEvent === "function") {
+      const suffix = "fair" in params && params.fair ? "_fair" : "";
+      w.fathom.trackEvent(`${name}${suffix}`);
+    }
     if (typeof w.gtag === "function") {
       w.gtag("event", name, params);
     }

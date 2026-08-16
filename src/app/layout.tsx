@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { GA_MEASUREMENT_ID, SITE_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from "@/config/site";
+import { FATHOM_SITE_ID, GA_MEASUREMENT_ID, SITE_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from "@/config/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -62,6 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             ],
           }}
         />
+        {FATHOM_SITE_ID ? (
+          <Script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_SITE_ID} strategy="afterInteractive" />
+        ) : null}
         {GA_MEASUREMENT_ID ? (
           <>
             <Script

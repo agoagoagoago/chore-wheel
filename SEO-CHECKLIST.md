@@ -42,9 +42,9 @@ What's already built in is marked ✅; the rest are actions for after the domain
 - [ ] Re-read each page after setting the site name; fix anything that reads oddly.
 - [ ] Add new templates/chores through `src/lib/chores/` rather than new pages. Don't add near-duplicate keyword pages.
 
-## Analytics (optional)
+## Analytics
 
-- [ ] Set `NEXT_PUBLIC_GA_MEASUREMENT_ID`. Update `/privacy` and `/cookies` to name the provider before shipping it.
+- ✅ Fathom Analytics via `NEXT_PUBLIC_FATHOM_SITE_ID`; `/privacy` and `/cookies` name it. Set the same var in Vercel production.
 - ✅ Events never include user-entered text.
 
 ## AdSense (only when the site has real traffic and content is final)

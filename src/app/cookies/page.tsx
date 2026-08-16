@@ -27,10 +27,10 @@ export default function CookiesPage() {
           <strong>No tracking cookies</strong> are set by {SITE_NAME} itself.
         </li>
       </ul>
-      <h2>If analytics is enabled</h2>
+      <h2>Analytics</h2>
       <p>
-        An analytics provider (such as Google Analytics) would set its own cookies or identifiers to count visits and events. This page and
-        the <Link href="/privacy">privacy policy</Link> will be updated to name the provider before that happens.
+        We use Fathom Analytics, which is designed to work <strong>without cookies</strong> and without personal identifiers. It sets no
+        cookies and stores nothing on your device. See the <Link href="/privacy">privacy policy</Link> for what it collects.
       </p>
       <h2>If advertising is enabled</h2>
       <p>

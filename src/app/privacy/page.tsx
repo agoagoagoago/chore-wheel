@@ -41,9 +41,10 @@ export default function PrivacyPage() {
 
       <h2>Analytics</h2>
       <p>
-        Analytics is disabled by default. If it is enabled in future, it will record anonymous usage events such as &ldquo;wheel spun&rdquo;
-        or &ldquo;template selected&rdquo; with counts only — never the chores or names you enter. This page will be updated to name the
-        provider and explain any opt-out before that happens.
+        We use <a href="https://usefathom.com/">Fathom Analytics</a> to count visits and see which pages and features are used. Fathom
+        does not use cookies, does not store personal information, and does not track you across other websites. It receives standard
+        request data (such as your IP address and browser type) to compute anonymous, aggregated statistics. Feature events we record — such
+        as &ldquo;wheel spun&rdquo; or &ldquo;template selected&rdquo; — are names only; the chores and people you enter are never included.
       </p>
 
       <h2>Advertising</h2>
