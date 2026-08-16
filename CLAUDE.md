@@ -39,7 +39,7 @@ A production website at **https://chorewheel.co** — a local-first chore wheel 
 - Domain: `chorewheel.co` is primary (apex serves 200); `www.chorewheel.co` 308 → apex (fixed via API PATCH on project domains — previously the reverse, which broke Search Console sitemap fetch). Vercel default: `chore-wheel-adrian-goh-projects.vercel.app`.
 - Production env vars set: `NEXT_PUBLIC_SITE_URL=https://chorewheel.co`, `NEXT_PUBLIC_FATHOM_SITE_ID=CUEPISZE`, `NEXT_PUBLIC_CONTACT_EMAIL=adrian@sqftai.co`. Not set: SITE_NAME (defaults "Chore Wheel"), ADSENSE_PUBLISHER_ID, GA_MEASUREMENT_ID.
 - Search Console: property `chorewheel.co`, sitemap submitted (initially "Couldn't fetch" due to the www redirect — resolved). Bing Webmaster verification meta `msvalidate.01` is in `layout.tsx` metadata.verification.
-- Lighthouse mobile on live `/`: Perf 99 / A11y 100 / BP 100 / SEO 100 (LCP 1.8s, CLS 0). External SEO audit (Aug 2026): 93/100, only warning was short trust-page titles — fixed.
+- Lighthouse mobile on live `/`: Perf 99 / A11y 100 / BP 100 / SEO 100 (LCP 1.8s, CLS 0). External SEO audits (Aug 2026): 93/100 → fixed short trust-page titles; then 99/100 → fixed missing CSP header. Nothing outstanding from audits.
 
 ## SEO decisions already made
 
@@ -55,4 +55,6 @@ A production website at **https://chorewheel.co** — a local-first chore wheel 
 - AdSense: apply only when there's traffic; then set publisher id, wire `<ins class="adsbygoogle">` in `AdSlot.tsx`, extend the CSP allow-list, add a CMP for EU/UK consent, re-check CLS.
 - After a few weeks: review Search Console queries and tune copy; consider a designed OG image (currently generated in `opengraph-image.tsx`).
 - Legal pages "Last updated: 16 August 2026" — bump when copy changes.
+- Optional: submit chorewheel.co to hstspreload.org (header already qualifies).
+- `scripts/` holds `gen-icons.mjs` (npm run icons) and `csp-check.mjs` (console CSP-violation probe; run against localhost:3111 after `next start` or against the live URL).
 - Possible future adjacent tools (name picker, dinner wheel, cleaning schedule) — deliberately NOT built; keep topical focus on household chores.
