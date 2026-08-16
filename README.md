@@ -35,7 +35,7 @@ src/
   app/                      Routes (all static): /, /chore-wheel-for-kids, /family-chore-wheel,
                             /roommate-chore-wheel, /chore-list, /weekly-chore-chart, /about, /contact,
                             /privacy, /terms, /cookies, sitemap.ts, robots.ts, ads.txt/route.ts,
-                            opengraph-image.tsx, icon.svg, not-found.tsx
+                            opengraph-image.tsx, manifest.ts, favicon.ico + icon.svg/png + apple-icon.png (regenerate with `npm run icons`), not-found.tsx
   lib/
     chores/                 data.ts (canonical chore library), templates.ts, categories.ts, types.ts
     wheel/                  random.ts (selection), geometry.ts (SVG math), state.ts (reducer + validation)
