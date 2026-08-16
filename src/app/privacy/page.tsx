@@ -5,7 +5,8 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE_NAME } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Privacy Policy",
+  title: "Privacy Policy – Your Chores Stay in Your Browser",
+  absoluteTitle: true,
   description: `How ${SITE_NAME} handles data: everything you enter stays in your browser; what changes if analytics or advertising are enabled.`,
   path: "/privacy",
 });

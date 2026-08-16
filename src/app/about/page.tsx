@@ -7,7 +7,8 @@ import { TEMPLATES } from "@/lib/chores/templates";
 import { SITE_NAME } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About",
+  title: "About Chore Wheel – Who Made It and How It Works",
+  absoluteTitle: true,
   description: `What ${SITE_NAME} is, how the wheel picks a chore, how Fair Rotation works, and how your data is handled.`,
   path: "/about",
 });

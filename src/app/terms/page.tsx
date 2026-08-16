@@ -5,7 +5,8 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE_NAME } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Terms of Use",
+  title: "Terms of Use for the Chore Wheel Tool",
+  absoluteTitle: true,
   description: `The terms under which ${SITE_NAME} is provided: free to use, no warranty, and common-sense rules for the chore suggestions.`,
   path: "/terms",
 });

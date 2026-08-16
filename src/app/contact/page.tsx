@@ -4,7 +4,8 @@ import { pageMetadata } from "@/lib/seo";
 import { CONTACT_EMAIL, SITE_NAME } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact",
+  title: "Contact Chore Wheel – Questions, Bugs and Ideas",
+  absoluteTitle: true,
   description: `How to get in touch with ${SITE_NAME} for questions, bug reports, corrections or suggestions.`,
   path: "/contact",
 });

@@ -5,7 +5,8 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE_NAME } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cookie Policy",
+  title: "Cookie Policy – No Tracking Cookies | Chore Wheel",
+  absoluteTitle: true,
   description: `Which cookies and browser storage ${SITE_NAME} uses today (local storage for your wheel; no tracking cookies) and what changes if ads or analytics are enabled.`,
   path: "/cookies",
 });
