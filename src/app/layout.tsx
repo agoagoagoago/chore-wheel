@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   openGraph: { siteName: SITE_NAME, type: "website", locale: "en_US" },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  verification: {
+    // Bing Webmaster Tools
+    other: { "msvalidate.01": "43EB0F43A57FF2E58725341D6601C805" },
+  },
 };
 
 export const viewport: Viewport = {
